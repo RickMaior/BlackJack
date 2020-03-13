@@ -7,7 +7,7 @@ Functions
 
 # ask how much money the player starts with
 def player_pick_money():
-    resposta = input("How much money you want to start with?")
+    resposta = input("\nHow much money you want to start with?")
     if resposta.isnumeric() and int(resposta) > 0:
         return int(resposta)
     else:
@@ -16,7 +16,7 @@ def player_pick_money():
 
 
 def play_again():
-    resposta = input("Do you want to keep playing?")
+    resposta = input("\nDo you want to keep playing?")
 
     if resposta.lower() == "yes" or resposta.lower() == "y":
 
@@ -67,16 +67,16 @@ def total(hand):
 
 
 def bet(money):
-    resposta = input("How much you want to bet?")
+    resposta = input("\nHow much you want to bet?")
     if resposta.isnumeric() and int(resposta) > 0:
-        if int(resposta) >= money:
+        if int(resposta) > money:
             print("You cant afford that")
-            return player_pick_money()
+            return bet(money)
         else:
             return int(resposta)
     else:
         print("That is an invalid number")
-        return player_pick_money()
+        return bet(money)
 
 
 '''
@@ -126,7 +126,7 @@ while keep_playing:
 
             def pick_move():
                 global player_total
-                player_move = input("You want to hit or stand? \n")
+                player_move = input("\nYou want to hit or stand? \n")
                 if player_move == "hit":
                     print("You choose to hit")
                     player_hand.insert(len(player_hand), pick_card(deck1))
@@ -187,6 +187,6 @@ while keep_playing:
     if not play_again():
         keep_playing = False
 # end of the file
-input("The game is over. Press enter to leave \n")
+input("\nThe game is over. Press enter to leave \n")
 
 
