@@ -69,7 +69,7 @@ def total(hand):
 def bet(money):
     resposta = input("How much you want to bet?")
     if resposta.isnumeric() and int(resposta) > 0:
-        if int(resposta) > money:
+        if int(resposta) >= money:
             print("You cant afford that")
             return player_pick_money()
         else:
